@@ -23,31 +23,136 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         LogOut = New Button()
-        TextBox1 = New TextBox()
+        txtbox_eid = New TextBox()
+        txtbox_firstname = New TextBox()
+        txtbox_lastname = New TextBox()
+        txtbox_age = New TextBox()
+        Label1 = New Label()
+        Label2 = New Label()
+        Label3 = New Label()
+        Label4 = New Label()
+        btn_Save = New Button()
+        btn_update = New Button()
+        btn_delete = New Button()
         SuspendLayout()
         ' 
         ' LogOut
         ' 
-        LogOut.Location = New Point(713, 12)
+        LogOut.Location = New Point(23, 12)
         LogOut.Name = "LogOut"
         LogOut.Size = New Size(75, 23)
         LogOut.TabIndex = 0
         LogOut.Text = "Sign Out"
         LogOut.UseVisualStyleBackColor = True
         ' 
-        ' TextBox1
+        ' txtbox_eid
         ' 
-        TextBox1.Location = New Point(222, 234)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(100, 23)
-        TextBox1.TabIndex = 1
+        txtbox_eid.Location = New Point(96, 80)
+        txtbox_eid.Name = "txtbox_eid"
+        txtbox_eid.Size = New Size(302, 23)
+        txtbox_eid.TabIndex = 1
+        txtbox_eid.WordWrap = False
+        ' 
+        ' txtbox_firstname
+        ' 
+        txtbox_firstname.Location = New Point(96, 109)
+        txtbox_firstname.Name = "txtbox_firstname"
+        txtbox_firstname.Size = New Size(302, 23)
+        txtbox_firstname.TabIndex = 2
+        ' 
+        ' txtbox_lastname
+        ' 
+        txtbox_lastname.Location = New Point(96, 138)
+        txtbox_lastname.Name = "txtbox_lastname"
+        txtbox_lastname.Size = New Size(302, 23)
+        txtbox_lastname.TabIndex = 3
+        ' 
+        ' txtbox_age
+        ' 
+        txtbox_age.Location = New Point(96, 167)
+        txtbox_age.Name = "txtbox_age"
+        txtbox_age.Size = New Size(302, 23)
+        txtbox_age.TabIndex = 4
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(23, 83)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(24, 15)
+        Label1.TabIndex = 5
+        Label1.Text = "EID"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Location = New Point(23, 112)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(64, 15)
+        Label2.TabIndex = 6
+        Label2.Text = "First Name"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(23, 141)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(63, 15)
+        Label3.TabIndex = 7
+        Label3.Text = "Last Name"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(23, 170)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(28, 15)
+        Label4.TabIndex = 8
+        Label4.Text = "Age"
+        ' 
+        ' btn_Save
+        ' 
+        btn_Save.Location = New Point(23, 240)
+        btn_Save.Name = "btn_Save"
+        btn_Save.Size = New Size(75, 23)
+        btn_Save.TabIndex = 9
+        btn_Save.Text = "Save"
+        btn_Save.UseVisualStyleBackColor = True
+        ' 
+        ' btn_update
+        ' 
+        btn_update.Location = New Point(104, 240)
+        btn_update.Name = "btn_update"
+        btn_update.Size = New Size(75, 23)
+        btn_update.TabIndex = 10
+        btn_update.Text = "Update"
+        btn_update.UseVisualStyleBackColor = True
+        ' 
+        ' btn_delete
+        ' 
+        btn_delete.Location = New Point(185, 240)
+        btn_delete.Name = "btn_delete"
+        btn_delete.Size = New Size(75, 23)
+        btn_delete.TabIndex = 11
+        btn_delete.Text = "Delete"
+        btn_delete.UseVisualStyleBackColor = True
         ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
-        Controls.Add(TextBox1)
+        ClientSize = New Size(459, 347)
+        Controls.Add(btn_delete)
+        Controls.Add(btn_update)
+        Controls.Add(btn_Save)
+        Controls.Add(Label4)
+        Controls.Add(Label3)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
+        Controls.Add(txtbox_age)
+        Controls.Add(txtbox_lastname)
+        Controls.Add(txtbox_firstname)
+        Controls.Add(txtbox_eid)
         Controls.Add(LogOut)
         Name = "MainForm"
         ResumeLayout(False)
@@ -55,5 +160,15 @@ Partial Class MainForm
     End Sub
 
     Friend WithEvents LogOut As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtbox_eid As TextBox
+    Friend WithEvents txtbox_firstname As TextBox
+    Friend WithEvents txtbox_lastname As TextBox
+    Friend WithEvents txtbox_age As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents btn_Save As Button
+    Friend WithEvents btn_update As Button
+    Friend WithEvents btn_delete As Button
 End Class
