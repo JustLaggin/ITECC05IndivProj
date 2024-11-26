@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class LoginForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -74,8 +74,10 @@ Partial Class Form1
         ' 
         txtbox_password.Location = New Point(250, 184)
         txtbox_password.Name = "txtbox_password"
+        txtbox_password.PasswordChar = "*"c
         txtbox_password.Size = New Size(332, 23)
         txtbox_password.TabIndex = 4
+        txtbox_password.UseSystemPasswordChar = True
         ' 
         ' btn_connect
         ' 
@@ -90,7 +92,7 @@ Partial Class Form1
         btn_connect.Text = "Connection"
         btn_connect.UseVisualStyleBackColor = True
         ' 
-        ' form1
+        ' LoginForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -101,8 +103,8 @@ Partial Class Form1
         Controls.Add(Label2)
         Controls.Add(btn_login)
         Controls.Add(Label1)
-        Name = "form1"
-        Text = "Form1"
+        Name = "LoginForm"
+        Text = "Login"
         ResumeLayout(False)
         PerformLayout()
     End Sub

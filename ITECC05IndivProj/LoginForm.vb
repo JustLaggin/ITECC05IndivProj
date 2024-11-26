@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class form1
+Public Class LoginForm
     Dim conn As MySqlConnection
     Dim COMMAND As MySqlCommand
     Private Sub btn_connect_Click(sender As Object, e As EventArgs) Handles btn_connect.Click
@@ -34,6 +34,8 @@ Public Class form1
             End While
             If count = 1 Then
                 MessageBox.Show("Login successful!")
+                Form2.Show()
+
             ElseIf count > 1 Then
                 MessageBox.Show("Username and password are duplicate!")
             Else
@@ -47,4 +49,12 @@ Public Class form1
         End Try
     End Sub
 
+    Private Sub Txtbox_password_KeyDown(sender As Object, e As KeyPressEventArgs) Handles txtbox_password.KeyPress
+
+        If e.KeyChar = ChrW(Keys.Enter) Then
+            btn_login.PerformClick()
+            e.Handled = True
+        End If
+
+    End Sub
 End Class
