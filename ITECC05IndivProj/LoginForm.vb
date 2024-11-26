@@ -33,9 +33,8 @@ Public Class LoginForm
                 count = count + 1
             End While
             If count = 1 Then
-                MessageBox.Show("Login successful!")
-                Form2.Show()
-
+                Me.Hide()
+                MainForm.Show()
             ElseIf count > 1 Then
                 MessageBox.Show("Username and password are duplicate!")
             Else

@@ -23,26 +23,37 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         LogOut = New Button()
+        TextBox1 = New TextBox()
         SuspendLayout()
         ' 
         ' LogOut
         ' 
-        LogOut.Location = New Point(228, 85)
+        LogOut.Location = New Point(713, 12)
         LogOut.Name = "LogOut"
         LogOut.Size = New Size(75, 23)
         LogOut.TabIndex = 0
         LogOut.Text = "Sign Out"
         LogOut.UseVisualStyleBackColor = True
         ' 
+        ' TextBox1
+        ' 
+        TextBox1.Location = New Point(222, 234)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(100, 23)
+        TextBox1.TabIndex = 1
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(TextBox1)
         Controls.Add(LogOut)
         Name = "MainForm"
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents LogOut As Button
+    Friend WithEvents TextBox1 As TextBox
 End Class
