@@ -1,8 +1,10 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports MySql.Data.MySqlClient
 
 Public Class MainForm
     Dim conn As MySqlConnection
     Dim COMMAND As MySqlCommand
+    Dim dbdataset As New DataTable
     Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
         LoginForm.Show()
         Me.Close()
@@ -66,6 +68,7 @@ Public Class MainForm
 
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.btn_load.PerformClick()
         conn = New MySqlConnection
         conn.ConnectionString = "server=127.0.0.1;userid=root;password='';database=testdatabase"
         Dim READER As MySqlDataReader
@@ -135,5 +138,46 @@ Public Class MainForm
             MsgBox(ex.Message)
             conn.Close()
         End Try
+    End Sub
+
+    Private Sub btn_load_Click(sender As Object, e As EventArgs) Handles btn_load.Click
+        conn = New MySqlConnection
+        conn.ConnectionString = "server=127.0.0.1;userid=root;password='';database=testdatabase"
+
+        Dim SDA As New MySqlDataAdapter
+        Dim bSource As New BindingSource
+        Try
+            conn.Open()
+            Dim Query As String
+            Query = "SELECT * FROM testdatabase.data"
+            COMMAND = New MySqlCommand(Query, conn)
+            SDA.SelectCommand = COMMAND
+            SDA.Fill(dbDataSet)
+            bSource.DataSource = dbDataSet
+            DataGridView1.DataSource = bSource
+            SDA.Update(dbDataSet)
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow
+            row = Me.DataGridView1.Rows(e.RowIndex)
+
+            txtbox_eid.Text = row.Cells("eid").Value.ToString
+            txtbox_firstname.Text = row.Cells("firstname").Value.ToString
+            txtbox_lastname.Text = row.Cells("lastname").Value.ToString
+            txtbox_age.Text = row.Cells("age").Value.ToString
+        End If
+    End Sub
+
+    Private Sub txtbox_search_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtbox_search.TextChanged
+        Dim DV As New DataView(dbdataset)
+        DV.RowFilter = String.Format("firstname like '%" & txtbox_search.Text & "%'")
+        DataGridView1.DataSource = DV
     End Sub
 End Class

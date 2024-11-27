@@ -36,6 +36,10 @@ Partial Class MainForm
         btn_delete = New Button()
         ComboBox1 = New ComboBox()
         ListBox1 = New ListBox()
+        DataGridView1 = New DataGridView()
+        btn_load = New Button()
+        txtbox_search = New TextBox()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' LogOut
@@ -156,11 +160,38 @@ Partial Class MainForm
         ListBox1.Size = New Size(144, 19)
         ListBox1.TabIndex = 13
         ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Location = New Point(330, 80)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.Size = New Size(339, 150)
+        DataGridView1.TabIndex = 14
+        ' 
+        ' btn_load
+        ' 
+        btn_load.Location = New Point(330, 236)
+        btn_load.Name = "btn_load"
+        btn_load.Size = New Size(75, 23)
+        btn_load.TabIndex = 15
+        btn_load.Text = "Load"
+        btn_load.UseVisualStyleBackColor = True
+        ' 
+        ' txtbox_search
+        ' 
+        txtbox_search.Location = New Point(411, 236)
+        txtbox_search.Name = "txtbox_search"
+        txtbox_search.Size = New Size(258, 23)
+        txtbox_search.TabIndex = 16
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(459, 347)
+        ClientSize = New Size(681, 343)
+        Controls.Add(txtbox_search)
+        Controls.Add(btn_load)
+        Controls.Add(DataGridView1)
         Controls.Add(ListBox1)
         Controls.Add(ComboBox1)
         Controls.Add(btn_delete)
@@ -176,6 +207,7 @@ Partial Class MainForm
         Controls.Add(txtbox_eid)
         Controls.Add(LogOut)
         Name = "MainForm"
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -194,4 +226,7 @@ Partial Class MainForm
     Friend WithEvents btn_delete As Button
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents btn_load As Button
+    Friend WithEvents txtbox_search As TextBox
 End Class
