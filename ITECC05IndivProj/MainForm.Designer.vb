@@ -34,6 +34,8 @@ Partial Class MainForm
         btn_Save = New Button()
         btn_update = New Button()
         btn_delete = New Button()
+        ComboBox1 = New ComboBox()
+        ListBox1 = New ListBox()
         SuspendLayout()
         ' 
         ' LogOut
@@ -47,31 +49,31 @@ Partial Class MainForm
         ' 
         ' txtbox_eid
         ' 
-        txtbox_eid.Location = New Point(96, 80)
+        txtbox_eid.Location = New Point(116, 80)
         txtbox_eid.Name = "txtbox_eid"
-        txtbox_eid.Size = New Size(302, 23)
+        txtbox_eid.Size = New Size(164, 23)
         txtbox_eid.TabIndex = 1
         txtbox_eid.WordWrap = False
         ' 
         ' txtbox_firstname
         ' 
-        txtbox_firstname.Location = New Point(96, 109)
+        txtbox_firstname.Location = New Point(116, 109)
         txtbox_firstname.Name = "txtbox_firstname"
-        txtbox_firstname.Size = New Size(302, 23)
+        txtbox_firstname.Size = New Size(164, 23)
         txtbox_firstname.TabIndex = 2
         ' 
         ' txtbox_lastname
         ' 
-        txtbox_lastname.Location = New Point(96, 138)
+        txtbox_lastname.Location = New Point(116, 138)
         txtbox_lastname.Name = "txtbox_lastname"
-        txtbox_lastname.Size = New Size(302, 23)
+        txtbox_lastname.Size = New Size(164, 23)
         txtbox_lastname.TabIndex = 3
         ' 
         ' txtbox_age
         ' 
-        txtbox_age.Location = New Point(96, 167)
+        txtbox_age.Location = New Point(116, 167)
         txtbox_age.Name = "txtbox_age"
-        txtbox_age.Size = New Size(302, 23)
+        txtbox_age.Size = New Size(164, 23)
         txtbox_age.TabIndex = 4
         ' 
         ' Label1
@@ -137,11 +139,30 @@ Partial Class MainForm
         btn_delete.Text = "Delete"
         btn_delete.UseVisualStyleBackColor = True
         ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(104, 12)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(144, 23)
+        ComboBox1.TabIndex = 12
+        ' 
+        ' ListBox1
+        ' 
+        ListBox1.FormattingEnabled = True
+        ListBox1.ItemHeight = 15
+        ListBox1.Location = New Point(254, 16)
+        ListBox1.Name = "ListBox1"
+        ListBox1.Size = New Size(144, 19)
+        ListBox1.TabIndex = 13
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(459, 347)
+        Controls.Add(ListBox1)
+        Controls.Add(ComboBox1)
         Controls.Add(btn_delete)
         Controls.Add(btn_update)
         Controls.Add(btn_Save)
@@ -171,4 +192,6 @@ Partial Class MainForm
     Friend WithEvents btn_Save As Button
     Friend WithEvents btn_update As Button
     Friend WithEvents btn_delete As Button
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ListBox1 As ListBox
 End Class
