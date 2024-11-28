@@ -22,6 +22,9 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New DataVisualization.Charting.Series()
         LogOut = New Button()
         txtbox_eid = New TextBox()
         txtbox_firstname = New TextBox()
@@ -37,9 +40,12 @@ Partial Class MainForm
         ComboBox1 = New ComboBox()
         ListBox1 = New ListBox()
         DataGridView1 = New DataGridView()
-        btn_load = New Button()
+        btn_loadtable = New Button()
         txtbox_search = New TextBox()
+        Chart1 = New DataVisualization.Charting.Chart()
+        btn_loadchart = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(Chart1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' LogOut
@@ -168,14 +174,14 @@ Partial Class MainForm
         DataGridView1.Size = New Size(339, 150)
         DataGridView1.TabIndex = 14
         ' 
-        ' btn_load
+        ' btn_loadtable
         ' 
-        btn_load.Location = New Point(330, 236)
-        btn_load.Name = "btn_load"
-        btn_load.Size = New Size(75, 23)
-        btn_load.TabIndex = 15
-        btn_load.Text = "Load"
-        btn_load.UseVisualStyleBackColor = True
+        btn_loadtable.Location = New Point(330, 236)
+        btn_loadtable.Name = "btn_loadtable"
+        btn_loadtable.Size = New Size(75, 23)
+        btn_loadtable.TabIndex = 15
+        btn_loadtable.Text = "Load Table"
+        btn_loadtable.UseVisualStyleBackColor = True
         ' 
         ' txtbox_search
         ' 
@@ -184,13 +190,41 @@ Partial Class MainForm
         txtbox_search.Size = New Size(258, 23)
         txtbox_search.TabIndex = 16
         ' 
+        ' Chart1
+        ' 
+        ChartArea1.Name = "ChartArea1"
+        Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Chart1.Legends.Add(Legend1)
+        Chart1.Location = New Point(699, 80)
+        Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.IsXValueIndexed = True
+        Series1.Legend = "Legend1"
+        Series1.Name = "Name_vs_Age"
+        Chart1.Series.Add(Series1)
+        Chart1.Size = New Size(339, 150)
+        Chart1.TabIndex = 17
+        Chart1.Text = "Chart1"
+        ' 
+        ' btn_loadchart
+        ' 
+        btn_loadchart.Location = New Point(699, 240)
+        btn_loadchart.Name = "btn_loadchart"
+        btn_loadchart.Size = New Size(75, 23)
+        btn_loadchart.TabIndex = 18
+        btn_loadchart.Text = "Load Chart"
+        btn_loadchart.UseVisualStyleBackColor = True
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(681, 343)
+        ClientSize = New Size(1081, 345)
+        Controls.Add(btn_loadchart)
+        Controls.Add(Chart1)
         Controls.Add(txtbox_search)
-        Controls.Add(btn_load)
+        Controls.Add(btn_loadtable)
         Controls.Add(DataGridView1)
         Controls.Add(ListBox1)
         Controls.Add(ComboBox1)
@@ -208,6 +242,7 @@ Partial Class MainForm
         Controls.Add(LogOut)
         Name = "MainForm"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(Chart1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -227,6 +262,8 @@ Partial Class MainForm
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btn_load As Button
+    Friend WithEvents btn_loadtable As Button
     Friend WithEvents txtbox_search As TextBox
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents btn_loadchart As Button
 End Class

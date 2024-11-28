@@ -68,7 +68,8 @@ Public Class MainForm
 
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.btn_load.PerformClick()
+        Me.btn_loadtable.PerformClick()
+        Me.btn_loadchart.PerformClick()
         conn = New MySqlConnection
         conn.ConnectionString = "server=127.0.0.1;userid=root;password='';database=testdatabase"
         Dim READER As MySqlDataReader
@@ -140,7 +141,7 @@ Public Class MainForm
         End Try
     End Sub
 
-    Private Sub btn_load_Click(sender As Object, e As EventArgs) Handles btn_load.Click
+    Private Sub btn_load_Click(sender As Object, e As EventArgs) Handles btn_loadtable.Click
         conn = New MySqlConnection
         conn.ConnectionString = "server=127.0.0.1;userid=root;password='';database=testdatabase"
 
@@ -149,13 +150,13 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "SELECT * FROM testdatabase.data"
+            Query = "SELECT eid as 'employee id',firstname,lastname,age FROM testdatabase.data"
             COMMAND = New MySqlCommand(Query, conn)
             SDA.SelectCommand = COMMAND
-            SDA.Fill(dbDataSet)
-            bSource.DataSource = dbDataSet
+            SDA.Fill(dbdataset)
+            bSource.DataSource = dbdataset
             DataGridView1.DataSource = bSource
-            SDA.Update(dbDataSet)
+            SDA.Update(dbdataset)
             conn.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -168,7 +169,7 @@ Public Class MainForm
             Dim row As DataGridViewRow
             row = Me.DataGridView1.Rows(e.RowIndex)
 
-            txtbox_eid.Text = row.Cells("eid").Value.ToString
+            txtbox_eid.Text = row.Cells("employee id").Value.ToString
             txtbox_firstname.Text = row.Cells("firstname").Value.ToString
             txtbox_lastname.Text = row.Cells("lastname").Value.ToString
             txtbox_age.Text = row.Cells("age").Value.ToString
@@ -179,5 +180,26 @@ Public Class MainForm
         Dim DV As New DataView(dbdataset)
         DV.RowFilter = String.Format("firstname like '%" & txtbox_search.Text & "%'")
         DataGridView1.DataSource = DV
+    End Sub
+
+    Private Sub btn_loadchart_Click(sender As Object, e As EventArgs) Handles btn_loadchart.Click
+        conn = New MySqlConnection
+        conn.ConnectionString = "server=127.0.0.1;userid=root;password='';database=testdatabase"
+        Dim READER As MySqlDataReader
+        Try
+            conn.Open()
+            Dim Query As String
+            Query = "SELECT * FROM testdatabase.data"
+            COMMAND = New MySqlCommand(Query, conn)
+            READER = COMMAND.ExecuteReader
+            While READER.Read
+                Chart1.Series("Name_vs_Age").Points.AddXY(READER.GetString("firstname"), READER.GetInt32("age"))
+            End While
+
+            conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            conn.Close()
+        End Try
     End Sub
 End Class
