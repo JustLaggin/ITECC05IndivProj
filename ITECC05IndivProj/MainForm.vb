@@ -20,7 +20,7 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "INSERT INTO testdatabase.Data (EID,firstname,lastname,age,gender) Values ('" & txtbox_eid.Text & "' ,'" & txtbox_firstname.Text & "' ,'" & txtbox_lastname.Text & "' ,'" & txtbox_age.Text & "','" & gender & ")"
+            Query = "INSERT INTO testdatabase.Data (EID,firstname,lastname,age,gender,DateOfBirth) Values ('" & txtbox_eid.Text & "' ,'" & txtbox_firstname.Text & "' ,'" & txtbox_lastname.Text & "' ,'" & txtbox_age.Text & "','" & gender & "','" & datepicker_dob.Text & ")"
             COMMAND = New MySqlCommand(Query, conn)
             READER = COMMAND.ExecuteReader
             MessageBox.Show("Data Saved")
@@ -38,7 +38,7 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "Update testdatabase.Data SET EID= '" & txtbox_eid.Text & "' ,firstname='" & txtbox_firstname.Text & "' ,lastname='" & txtbox_lastname.Text & "' ,age='" & txtbox_age.Text & "' ,gender='" & gender & "' where eid='" & txtbox_eid.Text & "'"
+            Query = "Update testdatabase.Data SET EID= '" & txtbox_eid.Text & "' ,firstname='" & txtbox_firstname.Text & "' ,lastname='" & txtbox_lastname.Text & "' ,age='" & txtbox_age.Text & "',gender='" & gender & "',DateofBirth='" & datepicker_dob.Text & "' where eid='" & txtbox_eid.Text & "'"
             COMMAND = New MySqlCommand(Query, conn)
             READER = COMMAND.ExecuteReader
             MessageBox.Show("Data updated")
@@ -220,4 +220,5 @@ Public Class MainForm
     Private Sub radbtn_female_CheckedChanged(sender As Object, e As EventArgs) Handles radbtn_female.CheckedChanged
         gender = "female"
     End Sub
+
 End Class

@@ -46,6 +46,8 @@ Partial Class MainForm
         btn_loadchart = New Button()
         radbtn_male = New RadioButton()
         radbtn_female = New RadioButton()
+        datepicker_dob = New DateTimePicker()
+        Label5 = New Label()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Chart1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -240,11 +242,31 @@ Partial Class MainForm
         radbtn_female.Text = "Female"
         radbtn_female.UseVisualStyleBackColor = True
         ' 
+        ' datepicker_dob
+        ' 
+        datepicker_dob.CustomFormat = "yyyy.MM.dd"
+        datepicker_dob.Format = DateTimePickerFormat.Custom
+        datepicker_dob.Location = New Point(116, 51)
+        datepicker_dob.Name = "datepicker_dob"
+        datepicker_dob.Size = New Size(164, 23)
+        datepicker_dob.TabIndex = 21
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(23, 59)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(75, 15)
+        Label5.TabIndex = 22
+        Label5.Text = "Date Of Birth"
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1081, 277)
+        Controls.Add(Label5)
+        Controls.Add(datepicker_dob)
         Controls.Add(radbtn_female)
         Controls.Add(radbtn_male)
         Controls.Add(btn_loadchart)
@@ -294,4 +316,6 @@ Partial Class MainForm
     Friend WithEvents btn_loadchart As Button
     Friend WithEvents radbtn_male As RadioButton
     Friend WithEvents radbtn_female As RadioButton
+    Friend WithEvents datepicker_dob As DateTimePicker
+    Friend WithEvents Label5 As Label
 End Class
