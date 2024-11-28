@@ -2,6 +2,7 @@
 Imports MySql.Data.MySqlClient
 
 Public Class MainForm
+    Dim gender As String
     Dim conn As MySqlConnection
     Dim COMMAND As MySqlCommand
     Dim dbdataset As New DataTable
@@ -19,7 +20,7 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "INSERT INTO testdatabase.Data (EID,firstname,lastname,age) Values ('" & txtbox_eid.Text & "' ,'" & txtbox_firstname.Text & "' ,'" & txtbox_lastname.Text & "' ,'" & txtbox_age.Text & "' )"
+            Query = "INSERT INTO testdatabase.Data (EID,firstname,lastname,age,gender) Values ('" & txtbox_eid.Text & "' ,'" & txtbox_firstname.Text & "' ,'" & txtbox_lastname.Text & "' ,'" & txtbox_age.Text & "','" & gender & ")"
             COMMAND = New MySqlCommand(Query, conn)
             READER = COMMAND.ExecuteReader
             MessageBox.Show("Data Saved")
@@ -37,7 +38,7 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "Update testdatabase.Data SET EID= '" & txtbox_eid.Text & "' ,firstname='" & txtbox_firstname.Text & "' ,lastname='" & txtbox_lastname.Text & "' ,age='" & txtbox_age.Text & "' where eid='" & txtbox_eid.Text & "'"
+            Query = "Update testdatabase.Data SET EID= '" & txtbox_eid.Text & "' ,firstname='" & txtbox_firstname.Text & "' ,lastname='" & txtbox_lastname.Text & "' ,age='" & txtbox_age.Text & "' ,gender='" & gender & "' where eid='" & txtbox_eid.Text & "'"
             COMMAND = New MySqlCommand(Query, conn)
             READER = COMMAND.ExecuteReader
             MessageBox.Show("Data updated")
@@ -65,7 +66,6 @@ Public Class MainForm
             conn.Close()
         End Try
     End Sub
-
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.btn_loadtable.PerformClick()
@@ -201,5 +201,23 @@ Public Class MainForm
             MsgBox(ex.Message)
             conn.Close()
         End Try
+    End Sub
+
+    Private Sub MainForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do You really want to close the app", "Exit", MessageBoxButtons.YesNo)
+        If dialog = DialogResult.No Then
+            e.Cancel = True
+        Else
+            Application.ExitThread()
+        End If
+    End Sub
+
+    Private Sub radbtn_male_CheckedChanged(sender As Object, e As EventArgs) Handles radbtn_male.CheckedChanged
+        gender = "male"
+    End Sub
+
+    Private Sub radbtn_female_CheckedChanged(sender As Object, e As EventArgs) Handles radbtn_female.CheckedChanged
+        gender = "female"
     End Sub
 End Class

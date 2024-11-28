@@ -44,6 +44,8 @@ Partial Class MainForm
         txtbox_search = New TextBox()
         Chart1 = New DataVisualization.Charting.Chart()
         btn_loadchart = New Button()
+        radbtn_male = New RadioButton()
+        radbtn_female = New RadioButton()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Chart1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -216,11 +218,35 @@ Partial Class MainForm
         btn_loadchart.Text = "Load Chart"
         btn_loadchart.UseVisualStyleBackColor = True
         ' 
+        ' radbtn_male
+        ' 
+        radbtn_male.AutoSize = True
+        radbtn_male.Location = New Point(23, 211)
+        radbtn_male.Name = "radbtn_male"
+        radbtn_male.Size = New Size(51, 19)
+        radbtn_male.TabIndex = 19
+        radbtn_male.TabStop = True
+        radbtn_male.Text = "male"
+        radbtn_male.UseVisualStyleBackColor = True
+        ' 
+        ' radbtn_female
+        ' 
+        radbtn_female.AutoSize = True
+        radbtn_female.Location = New Point(183, 211)
+        radbtn_female.Name = "radbtn_female"
+        radbtn_female.Size = New Size(63, 19)
+        radbtn_female.TabIndex = 20
+        radbtn_female.TabStop = True
+        radbtn_female.Text = "Female"
+        radbtn_female.UseVisualStyleBackColor = True
+        ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1081, 345)
+        ClientSize = New Size(1081, 277)
+        Controls.Add(radbtn_female)
+        Controls.Add(radbtn_male)
         Controls.Add(btn_loadchart)
         Controls.Add(Chart1)
         Controls.Add(txtbox_search)
@@ -266,4 +292,6 @@ Partial Class MainForm
     Friend WithEvents txtbox_search As TextBox
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents btn_loadchart As Button
+    Friend WithEvents radbtn_male As RadioButton
+    Friend WithEvents radbtn_female As RadioButton
 End Class
