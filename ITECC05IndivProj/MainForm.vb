@@ -154,7 +154,7 @@ Public Class MainForm
         Try
             conn.Open()
             Dim Query As String
-            Query = "SELECT eid as 'employee id',firstname,lastname,age FROM testdatabase.data"
+            Query = "SELECT eid as 'employee id',firstname,lastname,age,dateofbirth,gender FROM testdatabase.data"
             COMMAND = New MySqlCommand(Query, conn)
             SDA.SelectCommand = COMMAND
             SDA.Fill(dbdataset)
@@ -177,6 +177,9 @@ Public Class MainForm
             txtbox_firstname.Text = row.Cells("firstname").Value.ToString
             txtbox_lastname.Text = row.Cells("lastname").Value.ToString
             txtbox_age.Text = row.Cells("age").Value.ToString
+            datepicker_dob.Text = row.Cells("dateofbirth").Value.ToString
+            ListBox1.Text = row.Cells("firstname").Value.ToString
+            ComboBox1.Text = row.Cells("firstname").Value.ToString
         End If
     End Sub
 
