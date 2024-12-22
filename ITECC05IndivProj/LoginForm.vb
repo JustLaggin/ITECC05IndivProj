@@ -56,4 +56,22 @@ Public Class LoginForm
         End If
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btn_showpass.Click
+        If txtbox_password.UseSystemPasswordChar = False Then
+            txtbox_password.UseSystemPasswordChar = True
+        Else
+            txtbox_password.UseSystemPasswordChar = False
+        End If
+    End Sub
+
+    Private Sub LoginForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Dim dialog As DialogResult
+        dialog = MessageBox.Show("Do You really want to close the app", "Exit", MessageBoxButtons.YesNo)
+        If dialog = DialogResult.No Then
+            e.Cancel = True
+        Else
+            Application.ExitThread()
+        End If
+    End Sub
 End Class

@@ -7,10 +7,14 @@ Public Class MainForm
     Dim COMMAND As MySqlCommand
     Dim dbdataset As New DataTable
     Private Sub LogOut_Click(sender As Object, e As EventArgs) Handles LogOut.Click
+        Me.Hide()
+        txtbox_age.Clear()
+        txtbox_eid.Clear()
+        txtbox_firstname.Clear()
+        txtbox_lastname.Clear()
+        txtbox_search.Clear()
+        ListBox1.ClearSelected()
         LoginForm.Show()
-        Me.Close()
-
-
     End Sub
 
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles btn_Save.Click

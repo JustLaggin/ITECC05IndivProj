@@ -28,6 +28,7 @@ Partial Class LoginForm
         txtbox_username = New TextBox()
         txtbox_password = New TextBox()
         btn_connect = New Button()
+        btn_showpass = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -74,7 +75,6 @@ Partial Class LoginForm
         ' 
         txtbox_password.Location = New Point(250, 184)
         txtbox_password.Name = "txtbox_password"
-        txtbox_password.PasswordChar = "*"c
         txtbox_password.Size = New Size(332, 23)
         txtbox_password.TabIndex = 4
         txtbox_password.UseSystemPasswordChar = True
@@ -92,11 +92,21 @@ Partial Class LoginForm
         btn_connect.Text = "Connection"
         btn_connect.UseVisualStyleBackColor = True
         ' 
+        ' btn_showpass
+        ' 
+        btn_showpass.Location = New Point(507, 184)
+        btn_showpass.Name = "btn_showpass"
+        btn_showpass.Size = New Size(75, 23)
+        btn_showpass.TabIndex = 6
+        btn_showpass.Text = "Show"
+        btn_showpass.UseVisualStyleBackColor = True
+        ' 
         ' LoginForm
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(btn_showpass)
         Controls.Add(btn_connect)
         Controls.Add(txtbox_password)
         Controls.Add(txtbox_username)
@@ -115,5 +125,6 @@ Partial Class LoginForm
     Friend WithEvents txtbox_username As TextBox
     Friend WithEvents txtbox_password As TextBox
     Friend WithEvents btn_connect As Button
+    Friend WithEvents btn_showpass As Button
 
 End Class
