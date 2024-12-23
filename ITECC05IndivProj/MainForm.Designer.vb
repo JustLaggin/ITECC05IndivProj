@@ -244,7 +244,7 @@ Partial Class MainForm
         ' 
         ' datepicker_dob
         ' 
-        datepicker_dob.CustomFormat = "yyyy.MM.dd"
+        datepicker_dob.CustomFormat = "yyyy-MM-dd"
         datepicker_dob.Format = DateTimePickerFormat.Custom
         datepicker_dob.Location = New Point(116, 51)
         datepicker_dob.Name = "datepicker_dob"
